@@ -7,12 +7,15 @@ class Application:
         self.ui = ui
 
     def run(self):
-        return
+        self.ui.initialize()                #Code works, but requires a new threat to run
+
+
 
 
 def main():
     ui = UI()
     application = Application(ui)
+    application.run()
 
 
 if __name__ == '__main__':
