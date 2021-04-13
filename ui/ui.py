@@ -36,7 +36,7 @@ class UI:
         view.setColor(QColor(Qt.transparent))
         view.setClearBeforeRendering(True)
 
-        view.setSource(QUrl("ui/views/overlay.qml"))
+        view.setSource(QUrl("ui/overlay/overlay.qml"))
 
         view.show()
 

@@ -25,7 +25,7 @@ class Application:
 
     def __init__(self, ui=None):
         self.ui = ui
-        self.running = False
+        self.running = True
         self.exit_code = None
 
     def run(self):
