@@ -10,23 +10,21 @@ class UIBackend(QObject):
 
 
 class UI:
-    """Displays overlays with tooltips."""
 
     def __init__(self):
-        self.views = []
         self.toggle_input_transparency = True
-
-    def initialize(self):
         self.backend = UIBackend()
         self.infos = []
         self.app = QApplication([])
+        self.view = None
+
+    def initialize(self):
         print("Start")
 
         view = QQuickView()
         view.rootContext().setContextProperty("backend", self.backend)
 
         view.setFlags(view.flags() | Qt.WindowStaysOnTopHint)
-
         view.setSurfaceType(QSurface.OpenGLSurface)
 
         surface_format = QSurfaceFormat()
@@ -53,10 +51,9 @@ class UI:
         self.infos.clear()
 
         if self.toggle_input_transparency:
-            self.view.setFlags(self.view.flags() |
-                               Qt.WindowTransparentForInput)
+            self.view.setFlags(self.view.flags() | Qt.WindowTransparentForInput)
 
-    def add(self, position, text, tooltip):
+    def add_text(self, position, text, tooltip):
         info = {
             "position": list(position),
             "text": text,
@@ -64,8 +61,7 @@ class UI:
         }
 
         if self.toggle_input_transparency:
-            self.view.setFlags(self.view.flags() &
-                               ~Qt.WindowTransparentForInput)
+            self.view.setFlags(self.view.flags() & ~Qt.WindowTransparentForInput)
 
         self.infos.append(info)
 
