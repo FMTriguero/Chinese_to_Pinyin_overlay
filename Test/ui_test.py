@@ -15,4 +15,5 @@ def test_getting_monitor_coordinates():
     expected = {'left': 880, 'top': 440, 'width': 160, 'height': 160}
     assert expected == application.ui.get_monitor_coordinates()
 
+# TODO learn testing with apps and multiple threads
 # No idea how to do tests regarding the creation of an app or multi thread applications (test works, but need to close)

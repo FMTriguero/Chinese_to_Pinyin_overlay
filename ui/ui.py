@@ -19,7 +19,7 @@ class UI:
         self.view = None
 
     def initialize(self):
-        print("Start")
+        print("Initializing ui")
 
         view = QQuickView()
         view.rootContext().setContextProperty("backend", self.backend)
