@@ -1,4 +1,6 @@
-pytest 6.2.2
-PySide2 5.15.2
-mss 6.1.0
-keyboard 0.13.5
+pytest      6.2.2
+PySide2     5.15.2
+mss         6.1.0
+keyboard    0.13.5
+Pillow      8.2.0
+numpy       1.20.2

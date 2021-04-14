@@ -67,7 +67,7 @@ class UI:
 
         self.backend.onOverlayInfoAdded.emit(info)
 
-    def get_monitor_coordinates(self):
+    def get_monitor_bounds(self):
         return {
             "left": self.view.x(),
             "top": self.view.y(),
