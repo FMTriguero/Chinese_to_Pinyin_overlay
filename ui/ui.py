@@ -1,6 +1,6 @@
 from PySide2.QtWidgets import QApplication
 from PySide2.QtQuick import QQuickView
-from PySide2.QtCore import QUrl, Qt, QObject, Signal
+from PySide2.QtCore import QUrl, Qt, QObject, Signal, QCoreApplication
 from PySide2.QtGui import QSurfaceFormat, QSurface, QColor, QFont
 
 
@@ -52,6 +52,21 @@ class UI:
 
         if self.toggle_input_transparency:
             self.view.setFlags(self.view.flags() | Qt.WindowTransparentForInput)
+
+    def update(self, results):
+        for result in results:
+            result["position"] = (
+                result["position"][0],
+                result["position"][1]
+            )
+
+            text, tooltip = result["pinyin_text"], result["translation_text"]
+            print("Text:")
+            print(text)
+            print("Text and tooltip")
+            print(text, tooltip)
+
+            self.add_text(result["position"], text, tooltip)
 
     def add_text(self, position, text, tooltip):
         info = {

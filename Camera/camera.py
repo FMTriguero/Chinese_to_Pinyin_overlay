@@ -6,12 +6,12 @@ import numpy as np
 
 class Camera:
     def __init__(self):
-        self.bounds = []
+        self.bounds = {}
         self.sct = mss.mss()
         self.monitor = self.sct.monitors[1]
 
     def take_screenshot(self):
-        screenshot = self.sct.grab(self.monitor)
+        screenshot = self.sct.grab(self.bounds)
         return screenshot
 
     def transform_screenshot_to_np(self, screenshot):
